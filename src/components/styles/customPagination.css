@@ -1,0 +1,13 @@
+.MuiPagination-ul {
+  background-color: #05292e;
+  padding: 1rem;
+}
+
+.Mui-selected {
+  background-color: #4419f2;
+  color: #ffffff;
+}
+
+.MuiPaginationItem-root:not(.Mui-selected) {
+  color: #19d235;
+}
