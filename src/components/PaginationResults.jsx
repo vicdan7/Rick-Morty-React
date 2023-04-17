@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
-import "./styles/customPagination.css"
+import "./styles/customPagination.css";
 
 const PaginationResults = ({ location, setData }) => {
   const [page, setPage] = useState(1);
@@ -8,7 +8,7 @@ const PaginationResults = ({ location, setData }) => {
 
   useEffect(() => {
     if (location) {
-      if (location?.residents.length <= rowsPerPage) {
+      if (location?.residents?.length <= rowsPerPage) {
         setData(location);
       } else {
         handleChangePage(null, page);
@@ -21,14 +21,14 @@ const PaginationResults = ({ location, setData }) => {
     const startIndex = (newPage - 1) * 10;
     const endIndex = startIndex + 10;
     const currentPageElements = [
-      ...location?.residents?.slice(startIndex, endIndex),
+      ...(location?.residents?.slice(startIndex, endIndex) || []),
     ];
     setData({ ...location, residents: currentPageElements });
   };
 
   return (
     <Pagination
-      count={Math.ceil(location?.residents.length / 10 || 0)}
+      count={Math.ceil((location?.residents?.length || 0) / 10)}
       page={page}
       onChange={handleChangePage}
     />

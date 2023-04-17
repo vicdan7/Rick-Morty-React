@@ -12,23 +12,21 @@ const App = () => {
   const [inputValue, setinputValue] = useState(getRandomLocation());
 
   const url = `https://rickandmortyapi.com/api/location/${inputValue}`;
-  const [location, hasError] = useFetch(url);
+  const [location, hasError, loading] = useFetch(url);
   const [data, setData] = useState();
- 
 
   const imputLocation = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setinputValue(imputLocation.current.value);
-    
   };
 
   return (
     <div className="App">
       <div className="header">
         <img className="img-header" src={header} alt="" />
-        
+
         <h1 className="app-title">Rick & Morty</h1>
       </div>
       <form className="app-form" onSubmit={handleSubmit}>
@@ -49,7 +47,7 @@ const App = () => {
         <>
           <MainContent location={data} />
           <PaginationResults setData={setData} location={location} />
-          <Loading type={location ? "circle" : ""} />
+          {loading && <Loading type={loading ? "circle" : ""} />}
         </>
       )}
     </div>
