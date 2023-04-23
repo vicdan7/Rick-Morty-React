@@ -28,6 +28,6 @@ input{
 }
 img{
     display: block;
-    width: 80%;
+    width: 100%;
     cursor: pointer;
 }
