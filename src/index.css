@@ -31,3 +31,8 @@ img{
     width: 100%;
     cursor: pointer;
 }
+ul.MuiPagination-ul{
+    background-color: #05292e;
+    padding: 1em;
+    justify-content: center;
+}

@@ -7,6 +7,7 @@ import MainContent from "./components/MainContent";
 import PaginationResults from "./components/PaginationResults";
 import header from "./assets/header.jpg";
 import Loading from "./components/Loading";
+import footer from "./assets/footer.jpg"
 
 const App = () => {
   const [inputValue, setinputValue] = useState(getRandomLocation());
@@ -50,6 +51,9 @@ const App = () => {
           {loading && <Loading type={loading ? "circle" : ""} />}
         </>
       )}
+      <footer>
+        <img className="footer-img" src={footer}alt="" />
+      </footer>
     </div>
   );
 };
